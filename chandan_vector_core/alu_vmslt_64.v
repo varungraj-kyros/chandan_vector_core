@@ -1,0 +1,39 @@
+/*module vmslt_64_logic   #(
+                            parameter N = 64
+                        )
+                        (
+                                
+                            input [N-1:0] in_1   ,
+                            input [N-1:0] in_2   ,
+                            output  [N-1:0] vmslt_out     
+                        )                           ;
+
+                    assign vmslt_out = (in_1[N-1] ^ in_2[N-1]) ? {N{in_1[N-1]}} : ((in_1 < in_2 ) ? {N{1'b1}} : {N{1'b0}}) ; 
+
+endmodule*/
+module vmslt_64_logic   #(
+                            parameter N = 64
+                        )
+                        (
+                                
+                            input [N-1:0] in_1   ,
+                            input [N-1:0] in_2   ,
+                            input [2:0] sew      ,
+                            output reg [N-1:0] vmslt_out     
+                        )                           ;
+
+always@(sew or in_1 or in_2)
+begin
+
+case(sew)
+
+3'b001: vmslt_out = (in_1[15] ^ in_2[15]) ? {{63{1'b0}},{{in_1[15]}}} : ((in_1 < in_2 ) ?{{63{1'b0}},{1'b1}} : {{63{1'b0}},{1'b0}});
+3'b010: vmslt_out = (in_1[31] ^ in_2[31]) ? {{63{1'b0}},{{in_1[31]}}} : ((in_1 < in_2 ) ?{{63{1'b0}},{1'b1}} : {{63{1'b0}},{1'b0}});
+3'b011: vmslt_out = (in_1[63] ^ in_2[63]) ? {{63{1'b0}},{{in_1[63]}}} : ((in_1 < in_2 ) ?{{63{1'b0}},{1'b1}} : {{63{1'b0}},{1'b0}});
+default: vmslt_out = 64'd0 ;
+
+endcase
+
+end
+             
+endmodule

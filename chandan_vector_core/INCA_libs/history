@@ -1,0 +1,8 @@
+//
+// File created by:  irun
+// Do not modify this file
+
+s1::(02Mar2019:03:14:26):( irun -access +rwc -f all_modules.f )
+s2::(02Mar2019:03:14:29):( irun -access +rwc vector_top.v vector_top_tb.v )
+s3::(02Mar2019:03:15:59):( irun -access +rwc -f all_modules.f )
+s4::(02Mar2019:03:16:16):( irun -access +rwc alu_top.v alu_top_tb.v )

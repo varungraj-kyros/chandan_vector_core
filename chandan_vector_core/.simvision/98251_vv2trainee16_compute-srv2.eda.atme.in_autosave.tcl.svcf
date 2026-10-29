@@ -1,0 +1,154 @@
+
+#
+# Preferences
+#
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set toolbar-Standard-WaveWindow {
+  usual
+  position -pos 1
+}
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+preferences set savedlg-simulator ppe
+preferences set whats-new-dont-show-at-startup 1
+
+#
+# Databases
+#
+database require vector_top -search {
+	./vector_top.shm/vector_top.trn
+	/home/vv2trainee16/Desktop/trial/vector/rtl/Vector_ISA/vector_top.shm/vector_top.trn
+}
+
+#
+# Mnemonic Maps
+#
+mmap new -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1366x665+-1+27}] != ""} {
+    window geometry "Waveform 1" 1366x665+-1+27
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar select designbrowser
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ns \
+    -valuewidth 75
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.if_instance.pc_unit_inst.clk
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.if_instance.pc_unit_inst.reset
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.if_instance.pc_unit_inst.pc_out[10:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.if_instance.if_id_inst.instruction[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.if_instance.if_id_inst.IF_ID_instruction[31:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.if_instance.pc_unit_inst.stall_IFID
+	} ]
+set id [waveform add -cdivider divider]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ID.clk
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ID.reset
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ID.is_vv
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ID.is_vx
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ID.is_vi
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ID.is_mul
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ID.is_div
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ID.is_vsetvli
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ID.is_vec_load
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ID.is_vec_store
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ID.vs1[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ID.vs1_data[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ID.vs2[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ID.vs2_data[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ID.vd[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ID.rs1_data[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ID.rs2_data[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.write_address[7:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.write_en
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.mul_16_done
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.mul_32_done
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.mul_64_done
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.EX.ex_sew_f[2:0]}
+	} ]
+
+waveform xview limits 0 1200ns
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 600x250+0+0
+
+#
+# Layout selection
+#

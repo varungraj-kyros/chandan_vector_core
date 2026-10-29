@@ -1,0 +1,414 @@
+
+#
+# Preferences
+#
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set toolbar-Standard-WaveWindow {
+  usual
+  position -pos 1
+}
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+preferences set savedlg-simulator ppe
+preferences set whats-new-dont-show-at-startup 1
+
+#
+# Databases
+#
+database require vector_top -search {
+	./vector_top.shm/vector_top.trn
+	/home/vv2trainee16/Desktop/trial/vector/rtl/Vector_ISA/vector_top.shm/vector_top.trn
+}
+
+#
+# Mnemonic Maps
+#
+mmap new -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1366x665+-1+27}] != ""} {
+    window geometry "Waveform 1" 1366x665+-1+27
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar select designbrowser
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ns \
+    -valuewidth 75
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.VL[31:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.alu_cin
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.alu_op[4:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.clk
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.data_in[31:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.div_done
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ex_VL[31:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ex_alu_cin
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ex_alu_op[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ex_alu_result[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ex_imm[31:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ex_is_vec_load
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ex_is_vec_store
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ex_is_vi
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ex_is_vv
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ex_is_vx
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ex_mem_read
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ex_mem_write
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ex_mop[1:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ex_rd[4:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ex_reg_write_scalar
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ex_reg_write_vector
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ex_rs1_data[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ex_rs2_data[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ex_sew_f[2:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ex_v0_data[7:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ex_vd[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ex_vd_old[127:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ex_vm
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ex_vs1_data[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ex_vs2_data[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ex_vs3_data[127:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.ex_wbdata
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.ifid_instr[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.imm[31:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.is_vec_load
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.is_vec_store
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.is_vi
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.is_vv
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.is_vx
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.mem_VL[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.mem_alu_result[127:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.mem_done
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.mem_lsu_result[127:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.mem_mem_read
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.mem_mem_write
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.mem_mop[1:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.mem_rd[4:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.mem_read
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.mem_reg_write_scalar
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.mem_reg_write_vector
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.mem_rs1_data[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.mem_rs2_data[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.mem_sew_f[2:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.mem_v0_data[7:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.mem_vd[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.mem_vd_old[127:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.mem_vm
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.mem_vs2_data[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.mem_vs3_data[127:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.mem_wbdata
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.mem_write
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.mop[1:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.mul_done
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.rd[4:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.reg_write_scalar
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.reg_write_vector
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.reset
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.rs1_data[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.rs2_data[31:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.rst_data_mem
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.sew_f[2:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.stall_IDEX
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.stall_IFID
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.start_div
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.start_mem
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.start_mul
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.top_address_out[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.top_data_out[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.v0_data[7:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.vd[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.vd_old[127:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.vm
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.vs1_data[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.vs2_data[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.vs3_data[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.wb_rd[4:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.wb_reg_write_scalar
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.wb_reg_write_vector
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.wb_scalar_data[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.wb_scalar_data_internal[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.wb_scalar_rd[4:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.wb_scalar_we
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.wb_sew[2:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.wb_v0_mask[7:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.wb_vd[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.wb_vd_old[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.wb_vec_data_internal[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.wb_vector_data[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.wb_vector_vd[4:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.wb_vector_we
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.wb_vm
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.wbdata
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.write_address[7:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.write_en
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.if_instance.IF_ID_instruction[31:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.if_instance.clk
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.if_instance.data_in[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.if_instance.instruction[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.if_instance.pc_current[10:0]}
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.if_instance.pc_next[10:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.if_instance.reset
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.if_instance.stall_IFID
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.if_instance.write_address[7:0]}
+	} ]
+set id [waveform add -signals  {
+	vector_top::vector_top_tb.dut.if_instance.write_en
+	} ]
+set id [waveform add -signals  {
+	{vector_top::vector_top_tb.dut.if_instance.imem_inst.instr[31:0]}
+	} ]
+
+waveform xview limits 2ns 152ns
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 600x250+0+0
+
+#
+# Layout selection
+#

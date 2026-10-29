@@ -1,0 +1,41 @@
+s1(29Mar2019:03:36:13):  irun -access +rwc scalar_register_file.v 
+s2(29Mar2019:03:37:43):  irun -access +rwc scalar_register_file.v 
+s3(29Mar2019:03:56:47):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s4(29Mar2019:03:59:00):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s5(29Mar2019:03:59:45):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s6(29Mar2019:04:01:32):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s7(29Mar2019:04:05:11):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s8(29Mar2019:04:06:01):  irun -access +rwc data.hex 
+s9(29Mar2019:04:11:14):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s10(29Mar2019:04:15:47):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s11(29Mar2019:04:16:34):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s12(29Mar2019:04:17:26):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s13(29Mar2019:04:17:43):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s14(29Mar2019:04:18:21):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s15(29Mar2019:04:20:24):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s16(29Mar2019:04:21:29):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s17(29Mar2019:04:21:52):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s18(29Mar2019:04:22:07):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s19(29Mar2019:04:23:33):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s20(29Mar2019:04:23:48):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s21(29Mar2019:04:26:35):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s22(29Mar2019:04:28:45):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s23(29Mar2019:04:41:10):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s24(29Mar2019:04:42:47):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s25(29Mar2019:04:44:22):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s26(29Mar2019:04:49:36):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s27(29Mar2019:04:56:19):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s28(29Mar2019:04:59:44):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s29(29Mar2019:05:15:15):  irun -access +rwc vector_register_file.v 
+s30(29Mar2019:05:16:37):  irun -access +rwc vector_register_file.v 
+s31(29Mar2019:06:47:10):  irun -access +rwc vector_register_file.v vector_register_file_tb.v 
+s32(29Mar2019:06:49:11):  irun -access +rwc vector_register_file.v vector_register_file_tb.v 
+s33(29Mar2019:06:50:27):  irun -access +rwc vector_register_file.v vector_register_file_tb.v 
+s34(29Mar2019:06:51:10):  irun -access +rwc vector_register_file.v vector_register_file_tb.v 
+s35(29Mar2019:06:51:32):  irun -access +rwc vector_register_file.v vector_register_file_tb.v 
+s36(29Mar2019:06:58:51):  irun -access +rwc vector_register_file.v vector_register_file_tb.v 
+s37(30Mar2019:02:38:17):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s38(30Mar2019:02:38:59):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s39(30Mar2019:02:47:15):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s40(30Mar2019:02:48:07):  irun -access +rwc scalar_register_file.v scalar_register_file_tb.v 
+s41(15Feb2019:22:42:38):  irun -access +rwc scalar_register_file.v 

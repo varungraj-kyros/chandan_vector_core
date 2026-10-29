@@ -1,0 +1,103 @@
+alu_top_16.v
+   alu_adder_16.v
+   alu_and_16.v
+   alu_or_16.v
+   alu_xor_16.v
+   alu_srl_16.v
+   alu_sll_16.v
+   alu_sra_16.v
+   alu_vmseq_16.v
+   alu_vmsgt_16.v
+   alu_vmsgtu_16.v
+   alu_vmsle_16.v
+   alu_vmsleu_16.v
+   alu_vmslt_16.v
+   alu_vmsltu_16.v
+   alu_vmsne_16.v
+   alu_minu_16.v
+   alu_min_16.v
+   alu_maxu_16.v
+   alu_max_16.v
+   alu_mul_16.v
+   alu_div_16.v
+  
+
+   alu_top_32.v
+   alu_add.v
+   alu_and.v
+   alu_or.v
+   alu_xor.v
+   alu_srl.v
+   alu_sll.v
+   alu_sra_32.v
+   alu_vmseq_32.v
+   alu_vmsgt_32.v
+   alu_vmsgtu_32.v
+   alu_vmsle_32.v
+   alu_vmsleu_32.v
+   alu_vmslt_32.v
+   alu_vmsltu_32.v
+   alu_vmsne_32.v
+   alu_minu_32.v
+   alu_min_32.v
+   alu_maxu_32.v
+   alu_max_32.v
+   alu_mul_32.v
+   alu_div_32.v
+
+
+   alu_top_64.v
+   alu_adder_64.v
+   alu_and_64.v
+   alu_or_64.v
+   alu_xor_64.v
+   alu_srl_64.v
+   alu_sll_64.v
+   alu_sra_64.v
+   alu_vmseq_64.v
+   alu_vmsgt_64.v
+   alu_vmsgtu_64.v
+   alu_vmsle_64.v
+   alu_vmsleu_64.v
+   alu_vmslt_64.v
+   alu_vmsltu_64.v
+   alu_vmsne_64.v
+   alu_minu_64.v
+   alu_min_64.v
+   alu_maxu_64.v
+   alu_max_64.v
+   alu_mul_64.v
+   alu_div_64.v
+  
+      alu_top.v
+
+pc.v
+pc_adder.v
+instrn_decoder.v
+stalling.v
+scoreboard.v
+vector_control_unit.v
+scalar_register_file.v
+vector_register_file.v
+
+instruction_memory_top.v
+instruction_mem_B0.v
+instruction_mem_B1.v
+instruction_mem_B2.v
+instruction_mem_B3.v
+decode_control_stage.v
+vector_operand_select.v
+lsu_1.v
+data_mem.v
+write_back.v
+if_stage.v
+IF_ID_pipeline.v
+decode_stage.v
+ID_EX_pipeline.v
+execute_stage.v
+EX_MEM_pipeline.v
+memory_stage.v
+MEM_WB_pipeline.v
+writeback_stage.v
+vector_top.v
+

@@ -1,0 +1,243 @@
+
+#
+# Preferences
+#
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set toolbar-Standard-WaveWindow {
+  usual
+  position -pos 1
+}
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+preferences set savedlg-simulator ppe
+preferences set whats-new-dont-show-at-startup 1
+
+#
+# Databases
+#
+database require decode_stage -search {
+	./decode_stage.shm/decode_stage.trn
+	/home/vv2trainee16/Desktop/trial/vector/rtl/Vector_ISA/decode_stage.shm/decode_stage.trn
+}
+
+#
+# Mnemonic Maps
+#
+mmap new -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1366x665+-1+27}] != ""} {
+    window geometry "Waveform 1" 1366x665+-1+27
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar select designbrowser
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ns \
+    -valuewidth 75
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.ISSUE_REQ
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.VL[31:0]}
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.alu_cin
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.alu_op[4:0]}
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.block_decode
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.busy
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.clk
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.div_done
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.funct3[2:0]}
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.funct6[5:0]}
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.ifid_instr[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.imm[31:0]}
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.is_div
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.is_mul
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.is_vec_load
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.is_vec_store
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.is_vi
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.is_vsetvli
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.is_vv
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.is_vx
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.mem_done
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.mem_read
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.mem_write
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.mop[1:0]}
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.mul_done
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.opcode[6:0]}
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.rd[4:0]}
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.reg_write_scalar
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.reg_write_vector
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.reserve_valid
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.reserve_vd[4:0]}
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.reset
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.rs1_data[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.rs2_data[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.sew_f[2:0]}
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.stall_IDEX
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.stall_IFID
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.start_div
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.start_mem
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.start_mul
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.v0_data[7:0]}
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.vd[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.vd_old[127:0]}
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.vm
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.vs1[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.vs1_data[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.vs2[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.vs2_data[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.vs3[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.vs3_data[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.vtype_imm[5:0]}
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.wb_scalar_data[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.wb_scalar_rd[4:0]}
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.wb_scalar_we
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.wb_vector_data[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{decode_stage::decode_stage_tb.dut.wb_vector_vd[4:0]}
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.wb_vector_we
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.wbdata
+	} ]
+set id [waveform add -signals  {
+	decode_stage::decode_stage_tb.dut.writes_vd
+	} ]
+
+waveform xview limits 80ns 102ns
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 600x250+0+0
+
+#
+# Layout selection
+#
